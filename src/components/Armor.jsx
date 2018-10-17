@@ -1,11 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Armor extends Component {
   render() {
-    return (
-      <div className="Armor item">
-      </div>
-    );
+    return <div className="Armor item" />;
   }
 }
 

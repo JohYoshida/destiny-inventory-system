@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import Armor from "./Armor";
 
 class Armors extends Component {
@@ -6,17 +6,17 @@ class Armors extends Component {
     super(props);
     this.state = {
       hover: false,
-      id: 0,
+      id: 0
     };
   }
 
-  enterArmor = (id) => {
+  enterArmor = id => {
     this.setState({ hover: true, id });
-  }
+  };
 
-  leaveArmor = (id) => {
+  leaveArmor = id => {
     this.setState({ hover: false });
-  }
+  };
 
   render() {
     const ids = [0, 1, 2, 3];
@@ -27,7 +27,8 @@ class Armors extends Component {
     let itemStorage;
     if (this.state.hover) {
       itemStorage = (
-        <div className="itemStorage"
+        <div
+          className="itemStorage"
           onMouseEnter={this.enterArmor.bind(this, this.state.id)}
           onMouseLeave={this.leaveArmor.bind(this, this.state.id)}
         >
@@ -50,7 +51,7 @@ class Armors extends Component {
         </div>
       );
     } else {
-      itemStorage = <div className="itemStorage hidden"/>
+      itemStorage = <div className="itemStorage hidden" />;
     }
 
     return (
