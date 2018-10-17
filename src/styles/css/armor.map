@@ -5,8 +5,8 @@
 		"../scss/armor.scss"
 	],
 	"sourcesContent": [
-		".Armor {\n  background-color: #7ab872;\n}\n"
+		".Armor {\n  background-color: rgba(#bababa,.75);\n}\n"
 	],
-	"mappings": ";AAAA,AAAA,MAAM,CAAC;EACL,gBAAgB,EAAE,OAAQ;CAC3B",
+	"mappings": ";AAAA,AAAA,MAAM,CAAC;EACL,gBAAgB,EAAO,yBAAO;CAC/B",
 	"names": []
 }

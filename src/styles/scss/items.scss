@@ -13,13 +13,14 @@
     flex-direction: column;
   }
   .itemStorage {
-    .row {
-      display: flex;
-      flex-direction: row;
-    }
+    height: 192px;
+    width: 192px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
     .hiddenItem {
       height: 64px;
-      width: 64px;
+      width: 192px;
     }
   }
   .itemStorage.hidden {

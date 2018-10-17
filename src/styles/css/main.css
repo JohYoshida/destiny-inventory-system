@@ -1,6 +1,6 @@
 /* line 1, /home/joh/Documents/Projects/rpg/src/styles/scss/weapon.scss */
 .Weapon {
-  background-color: #7278b8;
+  background-color: rgba(186, 186, 186, 0.75);
 }
 
 /* line 5, /home/joh/Documents/Projects/rpg/src/styles/scss/weapon.scss */
@@ -30,7 +30,7 @@
 
 /* line 1, /home/joh/Documents/Projects/rpg/src/styles/scss/armor.scss */
 .Armor {
-  background-color: #7ab872;
+  background-color: rgba(186, 186, 186, 0.75);
 }
 
 /* line 1, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
@@ -53,19 +53,22 @@
   flex-direction: column;
 }
 
-/* line 16, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
-.itemsArea .itemStorage .row {
+/* line 15, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+.itemsArea .itemStorage {
+  height: 192px;
+  width: 192px;
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: flex-end;
 }
 
-/* line 20, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+/* line 21, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
 .itemsArea .itemStorage .hiddenItem {
   height: 64px;
-  width: 64px;
+  width: 192px;
 }
 
-/* line 25, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+/* line 26, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
 .itemsArea .itemStorage.hidden {
   height: 192px;
   width: 192px;

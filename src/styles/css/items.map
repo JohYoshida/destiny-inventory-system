@@ -5,8 +5,8 @@
 		"../scss/items.scss"
 	],
 	"sourcesContent": [
-		".item {\n  margin: 1px;\n  height: 60px;\n  width: 60px;\n  border: 1px solid #b4b4b4;\n}\n\n.itemsArea {\n  display: flex;\n  flex-direction: row;\n  .items {\n    display: flex;\n    flex-direction: column;\n  }\n  .itemStorage {\n    .row {\n      display: flex;\n      flex-direction: row;\n    }\n    .hiddenItem {\n      height: 64px;\n      width: 64px;\n    }\n  }\n  .itemStorage.hidden {\n    height: 192px;\n    width: 192px;\n  }\n}\n"
+		".item {\n  margin: 1px;\n  height: 60px;\n  width: 60px;\n  border: 1px solid #b4b4b4;\n}\n\n.itemsArea {\n  display: flex;\n  flex-direction: row;\n  .items {\n    display: flex;\n    flex-direction: column;\n  }\n  .itemStorage {\n    height: 192px;\n    width: 192px;\n    display: flex;\n    flex-flow: row wrap;\n    justify-content: flex-end;\n    .hiddenItem {\n      height: 64px;\n      width: 192px;\n    }\n  }\n  .itemStorage.hidden {\n    height: 192px;\n    width: 192px;\n  }\n}\n"
 	],
-	"mappings": ";AAAA,AAAA,KAAK,CAAC;EACJ,MAAM,EAAE,GAAI;EACZ,MAAM,EAAE,IAAK;EACb,KAAK,EAAE,IAAK;EACZ,MAAM,EAAE,iBAAkB;CAC3B;;;AAED,AAAA,UAAU,CAAC;EACT,OAAO,EAAE,IAAK;EACd,cAAc,EAAE,GAAI;CAmBrB;;;AArBD,AAGE,UAHQ,CAGR,MAAM,CAAC;EACL,OAAO,EAAE,IAAK;EACd,cAAc,EAAE,MAAO;CACxB;;;AANH,AAQI,UARM,CAOR,YAAY,CACV,IAAI,CAAC;EACH,OAAO,EAAE,IAAK;EACd,cAAc,EAAE,GAAI;CACrB;;;AAXL,AAYI,UAZM,CAOR,YAAY,CAKV,WAAW,CAAC;EACV,MAAM,EAAE,IAAK;EACb,KAAK,EAAE,IAAK;CACb;;;AAfL,AAiBc,UAjBJ,CAiBR,YAAY,AAAA,OAAO,CAAC;EAClB,MAAM,EAAE,KAAM;EACd,KAAK,EAAE,KAAM;CACd",
+	"mappings": ";AAAA,AAAA,KAAK,CAAC;EACJ,MAAM,EAAE,GAAI;EACZ,MAAM,EAAE,IAAK;EACb,KAAK,EAAE,IAAK;EACZ,MAAM,EAAE,iBAAkB;CAC3B;;;AAED,AAAA,UAAU,CAAC;EACT,OAAO,EAAE,IAAK;EACd,cAAc,EAAE,GAAI;CAoBrB;;;AAtBD,AAGE,UAHQ,CAGR,MAAM,CAAC;EACL,OAAO,EAAE,IAAK;EACd,cAAc,EAAE,MAAO;CACxB;;;AANH,AAOE,UAPQ,CAOR,YAAY,CAAC;EACX,MAAM,EAAE,KAAM;EACd,KAAK,EAAE,KAAM;EACb,OAAO,EAAE,IAAK;EACd,SAAS,EAAE,QAAS;EACpB,eAAe,EAAE,QAAS;CAK3B;;;AAjBH,AAaI,UAbM,CAOR,YAAY,CAMV,WAAW,CAAC;EACV,MAAM,EAAE,IAAK;EACb,KAAK,EAAE,KAAM;CACd;;;AAhBL,AAkBc,UAlBJ,CAkBR,YAAY,AAAA,OAAO,CAAC;EAClB,MAAM,EAAE,KAAM;EACd,KAAK,EAAE,KAAM;CACd",
 	"names": []
 }

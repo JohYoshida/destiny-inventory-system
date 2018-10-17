@@ -5,8 +5,8 @@
 		"../scss/weapon.scss"
 	],
 	"sourcesContent": [
-		".Weapon {\n  background-color: #7278b8;\n}\n\n.common {\n  background-color: #d6d6d6;\n}\n\n.uncommon {\n  background-color: #1bc459;\n}\n\n.rare {\n  background-color: #1b69c4;\n}\n\n.legendary {\n  background-color: #9d1ac4;\n}\n\n.exotic {\n  background-color: #c4b81b;\n}\n"
+		".Weapon {\n  background-color: rgba(#bababa,.75);\n}\n\n.common {\n  background-color: #d6d6d6;\n}\n\n.uncommon {\n  background-color: #1bc459;\n}\n\n.rare {\n  background-color: #1b69c4;\n}\n\n.legendary {\n  background-color: #9d1ac4;\n}\n\n.exotic {\n  background-color: #c4b81b;\n}\n"
 	],
-	"mappings": ";AAAA,AAAA,OAAO,CAAC;EACN,gBAAgB,EAAE,OAAQ;CAC3B;;;AAED,AAAA,OAAO,CAAC;EACN,gBAAgB,EAAE,OAAQ;CAC3B;;;AAED,AAAA,SAAS,CAAC;EACR,gBAAgB,EAAE,OAAQ;CAC3B;;;AAED,AAAA,KAAK,CAAC;EACJ,gBAAgB,EAAE,OAAQ;CAC3B;;;AAED,AAAA,UAAU,CAAC;EACT,gBAAgB,EAAE,OAAQ;CAC3B;;;AAED,AAAA,OAAO,CAAC;EACN,gBAAgB,EAAE,OAAQ;CAC3B",
+	"mappings": ";AAAA,AAAA,OAAO,CAAC;EACN,gBAAgB,EAAO,yBAAO;CAC/B;;;AAED,AAAA,OAAO,CAAC;EACN,gBAAgB,EAAE,OAAQ;CAC3B;;;AAED,AAAA,SAAS,CAAC;EACR,gBAAgB,EAAE,OAAQ;CAC3B;;;AAED,AAAA,KAAK,CAAC;EACJ,gBAAgB,EAAE,OAAQ;CAC3B;;;AAED,AAAA,UAAU,CAAC;EACT,gBAAgB,EAAE,OAAQ;CAC3B;;;AAED,AAAA,OAAO,CAAC;EACN,gBAAgB,EAAE,OAAQ;CAC3B",
 	"names": []
 }
