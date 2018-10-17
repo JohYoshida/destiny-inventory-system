@@ -1,0 +1,29 @@
+.item {
+  margin: 1px;
+  height: 60px;
+  width: 60px;
+  border: 1px solid #b4b4b4;
+}
+
+.itemsArea {
+  display: flex;
+  flex-direction: row;
+  .items {
+    display: flex;
+    flex-direction: column;
+  }
+  .itemStorage {
+    .row {
+      display: flex;
+      flex-direction: row;
+    }
+    .hiddenItem {
+      height: 64px;
+      width: 64px;
+    }
+  }
+  .itemStorage.hidden {
+    height: 192px;
+    width: 192px;
+  }
+}

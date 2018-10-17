@@ -1,25 +1,18 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Weapons from "./components/Weapons";
+import Armors from "./components/Armors";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="character">
+        <div className="inventory">
+          <Weapons />
+          <div className="player-model">
+            <p>Player Model</p>
+          </div>
+          <Armors />
+        </div>
       </div>
     );
   }

@@ -1,0 +1,87 @@
+/* line 1, /home/joh/Documents/Projects/rpg/src/styles/scss/weapon.scss */
+.Weapon {
+  background-color: #7278b8;
+}
+
+/* line 5, /home/joh/Documents/Projects/rpg/src/styles/scss/weapon.scss */
+.common {
+  background-color: #d6d6d6;
+}
+
+/* line 9, /home/joh/Documents/Projects/rpg/src/styles/scss/weapon.scss */
+.uncommon {
+  background-color: #1bc459;
+}
+
+/* line 13, /home/joh/Documents/Projects/rpg/src/styles/scss/weapon.scss */
+.rare {
+  background-color: #1b69c4;
+}
+
+/* line 17, /home/joh/Documents/Projects/rpg/src/styles/scss/weapon.scss */
+.legendary {
+  background-color: #9d1ac4;
+}
+
+/* line 21, /home/joh/Documents/Projects/rpg/src/styles/scss/weapon.scss */
+.exotic {
+  background-color: #c4b81b;
+}
+
+/* line 1, /home/joh/Documents/Projects/rpg/src/styles/scss/armor.scss */
+.Armor {
+  background-color: #7ab872;
+}
+
+/* line 1, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+.item {
+  margin: 1px;
+  height: 60px;
+  width: 60px;
+  border: 1px solid #b4b4b4;
+}
+
+/* line 8, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+.itemsArea {
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 11, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+.itemsArea .items {
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 16, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+.itemsArea .itemStorage .row {
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 20, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+.itemsArea .itemStorage .hiddenItem {
+  height: 64px;
+  width: 64px;
+}
+
+/* line 25, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+.itemsArea .itemStorage.hidden {
+  height: 192px;
+  width: 192px;
+}
+
+/* line 5, /home/joh/Documents/Projects/rpg/src/styles/scss/main.scss */
+.inventory {
+  display: flex;
+  justify-content: center;
+  margin: 100px;
+}
+
+/* line 9, /home/joh/Documents/Projects/rpg/src/styles/scss/main.scss */
+.inventory .player-model {
+  flex: auto;
+  text-align: center;
+}
+
+/*# sourceMappingURL=../css/main.map */

@@ -1,0 +1,39 @@
+/* line 1, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+.item {
+  margin: 1px;
+  height: 60px;
+  width: 60px;
+  border: 1px solid #b4b4b4;
+}
+
+/* line 8, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+.itemsArea {
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 11, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+.itemsArea .items {
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 16, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+.itemsArea .itemStorage .row {
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 20, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+.itemsArea .itemStorage .hiddenItem {
+  height: 64px;
+  width: 64px;
+}
+
+/* line 25, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+.itemsArea .itemStorage.hidden {
+  height: 192px;
+  width: 192px;
+}
+
+/*# sourceMappingURL=../css/items.map */
