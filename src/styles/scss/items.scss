@@ -1,8 +1,39 @@
 .item {
+  display: flex;
+  flex-flow: row-reverse;
+  align-items: flex-end;
   margin: 1px;
   height: 60px;
   width: 60px;
   border: 1px solid #b4b4b4;
+  .level {
+    font-size: 12px;
+    margin-right: 22px;
+  }
+  .kinetic{
+    height: 10px;
+    width: 10px;
+    margin: 3px;
+    background-color: #c7230d;
+  }
+  .solar{
+    height: 10px;
+    width: 10px;
+    margin: 3px;
+    background-color: #c7820d;
+  }
+  .arc{
+    height: 10px;
+    width: 10px;
+    margin: 3px;
+    background-color: #0dc7b1;
+  }
+  .void{
+    height: 10px;
+    width: 10px;
+    margin: 3px;
+    background-color: #750dc7;
+  }
 }
 
 .itemsArea {

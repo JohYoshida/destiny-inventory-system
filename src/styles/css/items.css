@@ -1,24 +1,65 @@
 /* line 1, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
 .item {
+  display: flex;
+  flex-flow: row-reverse;
+  align-items: flex-end;
   margin: 1px;
   height: 60px;
   width: 60px;
   border: 1px solid #b4b4b4;
 }
 
-/* line 8, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+/* line 9, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+.item .level {
+  font-size: 12px;
+  margin-right: 22px;
+}
+
+/* line 13, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+.item .kinetic {
+  height: 10px;
+  width: 10px;
+  margin: 3px;
+  background-color: #c7230d;
+}
+
+/* line 19, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+.item .solar {
+  height: 10px;
+  width: 10px;
+  margin: 3px;
+  background-color: #c7820d;
+}
+
+/* line 25, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+.item .arc {
+  height: 10px;
+  width: 10px;
+  margin: 3px;
+  background-color: #0dc7b1;
+}
+
+/* line 31, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+.item .void {
+  height: 10px;
+  width: 10px;
+  margin: 3px;
+  background-color: #750dc7;
+}
+
+/* line 39, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
 .itemsArea {
   display: flex;
   flex-direction: row;
 }
 
-/* line 11, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+/* line 42, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
 .itemsArea .items {
   display: flex;
   flex-direction: column;
 }
 
-/* line 15, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+/* line 46, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
 .itemsArea .itemStorage {
   height: 192px;
   width: 192px;
@@ -27,13 +68,13 @@
   justify-content: flex-end;
 }
 
-/* line 21, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+/* line 52, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
 .itemsArea .itemStorage .hiddenItem {
   height: 64px;
   width: 192px;
 }
 
-/* line 26, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
+/* line 57, /home/joh/Documents/Projects/rpg/src/styles/scss/items.scss */
 .itemsArea .itemStorage.hidden {
   height: 192px;
   width: 192px;
