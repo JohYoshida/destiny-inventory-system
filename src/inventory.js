@@ -303,8 +303,8 @@ module.exports = {
       carrying: []
     }
   },
-  armor: {
-    helmet: {
+  armors: {
+    helmets: {
       equipped: items.armor.warlock.helmets.ProphetSnowHelmet,
       carrying: [
         items.armor.warlock.helmets.EyeOfAnotherWorld,
@@ -320,7 +320,7 @@ module.exports = {
         items.armor.warlock.gauntlets.VigilOfHeroesGauntlets
       ]
     },
-    chest: {
+    chests: {
       equipped: items.armor.warlock.chests.ProphetSnowChest,
       carrying: [items.armor.warlock.chests.WingTheoremChest]
     },
