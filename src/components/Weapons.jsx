@@ -7,84 +7,62 @@ class Weapons extends Component {
     this.state = {
       hover: false,
       id: 0,
-      weapon: {
-        name: "",
-        type: "",
-        damage: "",
-        rarity: ""
-      }
+      weapon: "",
     };
   }
 
   render() {
-    const ids = [0, 1, 2, 3];
     const itemStorage = this.makeItemStorage(this.state, this.props.weapons);
-    const weaponStats = this.makeWeaponStats(this.state.weapon);
     return (
       <div className="itemsArea">
         {itemStorage}
         <div className="items">
           <div
             className="kinetic"
-            id={ids[0]}
-            onMouseEnter={this.enterWeapon.bind(this, ids[0])}
-            onMouseLeave={this.leaveWeapon.bind(this, ids[0])}
+            id={"kinetic"}
+            onMouseEnter={this.enterWeapon.bind(this, "kinetic")}
+            onMouseLeave={this.leaveWeapon.bind(this)}
           >
             <Weapon weapon={this.props.weapons.kinetic.equipped} />
           </div>
           <div
             className="energy"
-            id={ids[1]}
-            onMouseEnter={this.enterWeapon.bind(this, ids[1])}
-            onMouseLeave={this.leaveWeapon.bind(this, ids[1])}
+            id={"energy"}
+            onMouseEnter={this.enterWeapon.bind(this, "energy")}
+            onMouseLeave={this.leaveWeapon.bind(this)}
           >
             <Weapon weapon={this.props.weapons.energy.equipped} />
           </div>
           <div
             className="power"
-            id={ids[2]}
-            onMouseEnter={this.enterWeapon.bind(this, ids[2])}
-            onMouseLeave={this.leaveWeapon.bind(this, ids[2])}
+            id={"power"}
+            onMouseEnter={this.enterWeapon.bind(this, "power")}
+            onMouseLeave={this.leaveWeapon.bind(this)}
           >
             <Weapon weapon={this.props.weapons.power.equipped} />
           </div>
           <div
             className="special"
-            id={ids[3]}
-            onMouseEnter={this.enterWeapon.bind(this, ids[3])}
-            onMouseLeave={this.leaveWeapon.bind(this, ids[3])}
+            id={"special"}
+            onMouseEnter={this.enterWeapon.bind(this, "special")}
+            onMouseLeave={this.leaveWeapon.bind(this)}
           >
             <Weapon weapon={this.props.weapons.special.equipped} />
           </div>
-          {weaponStats}
         </div>
       </div>
     );
   }
 
   enterWeapon = id => {
-    const weapon = setHoveredWeapon(this.props.weapons, id);
+    const weapon = this.props.setHoveredItem(id);
     this.setState({ hover: true, id, weapon });
   };
 
-  leaveWeapon = id => {
-    this.setState({ hover: false, weapon: "" });
+  leaveWeapon = () => {
+    const weapon = this.props.setHoveredItem();
+    this.setState({ hover: false, weapon });
   };
-
-  makeWeaponStats = (weapon) => {
-    if (this.state.weapon !== "") {
-      return (
-        <div className="weaponStats">
-          <p>{weapon.name}</p>
-          <p>{weapon.type}</p>
-          <p>{weapon.damage}</p>
-          <p>{weapon.rarity}</p>
-        </div>
-      )
-    } else {
-        return <div className="weaponStats" />
-    }
-  }
 
   makeItemStorage = (state, weapons) => {
     const hiddenItems = makeHiddenItems(state.id);
@@ -115,44 +93,23 @@ class Weapons extends Component {
   };
 }
 
-function setHoveredWeapon(weapons, id) {
-  let weapon;
-  switch (id) {
-    case 0:
-      weapon = weapons.kinetic.equipped;
-      break;
-    case 1:
-      weapon = weapons.energy.equipped;
-      break;
-    case 2:
-      weapon = weapons.power.equipped;
-      break;
-    case 3:
-      weapon = weapons.special.equipped;
-      break;
-    default:
-      weapon = "";
-  }
-  return weapon;
-}
-
 function setHoveredInventory(weapons, id) {
   let inventory;
   switch (id) {
-    case 0:
+    case "kinetic":
       inventory = weapons.kinetic.carrying;
       break;
-    case 1:
+    case "energy":
       inventory = weapons.energy.carrying;
       break;
-    case 2:
+    case "power":
       inventory = weapons.power.carrying;
       break;
-    case 3:
+    case "special":
       inventory = weapons.special.carrying;
       break;
     default:
-      inventory = weapons.kinetic.carrying;
+      inventory = [];
   }
   return inventory;
 }
