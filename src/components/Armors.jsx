@@ -6,43 +6,51 @@ class Armors extends Component {
     super(props);
     this.state = {
       hover: false,
-      id: 0,
+      type: 0,
       armor: "",
     };
   }
 
   render() {
-    const itemStorage = this.makeItemStorage(this.state, this.props.armors);
+    const itemStorage = this.makeArmorStorage(this.state, this.props.armors);
     return (
       <div className="itemsArea">
         <div className="items">
           <div
-            id={"helmet"}
-            onMouseEnter={this.enterArmor.bind(this, "helmet")}
+            onMouseEnter={this.enterArmor.bind(this, "helmets")}
             onMouseLeave={this.leaveArmor.bind(this)}
           >
-            <Armor armor={this.props.armors.helmets.equipped} />
+            <Armor
+              id={"helmets"}
+              armor={this.props.armors.helmets.equipped}
+            />
           </div>
           <div
-            id={"gauntlets"}
             onMouseEnter={this.enterArmor.bind(this, "gauntlets")}
             onMouseLeave={this.leaveArmor.bind(this)}
           >
-            <Armor armor={this.props.armors.gauntlets.equipped} />
+            <Armor
+              id={"gauntlets"}
+              armor={this.props.armors.gauntlets.equipped}
+            />
           </div>
           <div
-            id={"chest"}
-            onMouseEnter={this.enterArmor.bind(this, "chest")}
+            onMouseEnter={this.enterArmor.bind(this, "chests")}
             onMouseLeave={this.leaveArmor.bind(this)}
           >
-            <Armor armor={this.props.armors.chests.equipped} />
+            <Armor
+              id={"chests"}
+              armor={this.props.armors.chests.equipped}
+            />
           </div>
           <div
-            id={"boots"}
             onMouseEnter={this.enterArmor.bind(this, "boots")}
             onMouseLeave={this.leaveArmor.bind(this)}
           >
-            <Armor armor={this.props.armors.boots.equipped} />
+            <Armor
+              id={"boots"}
+              armor={this.props.armors.boots.equipped}
+            />
           </div>
         </div>
         {itemStorage}
@@ -50,9 +58,9 @@ class Armors extends Component {
     );
   }
 
-  enterArmor = id => {
-    const armor = this.props.setHoveredItem(id);
-    this.setState({ hover: true, id, armor });
+  enterArmor = type => {
+    const armor = this.props.setHoveredItem(type);
+    this.setState({ hover: true, type, armor });
   };
 
   leaveArmor = () => {
@@ -60,14 +68,24 @@ class Armors extends Component {
     this.setState({ hover: false, armor });
   };
 
-  makeItemStorage = (state, armors) => {
-    const hiddenItems = makeHiddenItems(state.id);
+  makeArmorStorage = (state, armors) => {
     let itemStorage;
     if (state.hover) {
-      const inventory = setHoveredInventory(armors, state.id);
+      const inventory = setHoveredInventory(armors, state.type);
+      const id = inventory.shift();
+      const hiddenItems = makeHiddenItems(inventory, id);
       let items = [];
+      let count = 0;
       for (var item in inventory) {
-        items.push(<Armor armor={inventory[item]} />);
+        items.push(
+          <div onClick={this.props.switchArmor.bind(this, armors, state.type, count)}>
+            <Armor
+              id={count}
+              armor={inventory[item]}
+              />
+          </div>
+        );
+        count++;
       }
       if (inventory.length < 7) {
         items.push(<div className="hiddenItem" />);
@@ -75,8 +93,8 @@ class Armors extends Component {
       itemStorage = (
         <div
           className="itemStorage"
-          onMouseEnter={this.enterArmor.bind(this, this.state.id)}
-          onMouseLeave={this.enterArmor.bind(this, this.state.id)}
+          onMouseEnter={this.enterArmor.bind(this, state.type)}
+          onMouseLeave={this.enterArmor.bind(this, state.type)}
         >
           {hiddenItems}
           {items}
@@ -89,28 +107,32 @@ class Armors extends Component {
   }
 }
 
-function setHoveredInventory(armors, id) {
+function setHoveredInventory(armors, type) {
   let inventory;
-  switch (id) {
-    case "helmet":
+  switch (type) {
+    case "helmets":
       inventory = armors.helmets.carrying;
+      inventory.unshift(0);
       break;
     case "gauntlets":
       inventory = armors.gauntlets.carrying;
+      inventory.unshift(1);
       break;
-    case "chest":
+    case "chests":
       inventory = armors.chests.carrying;
+      inventory.unshift(2);
       break;
     case "boots":
       inventory = armors.boots.carrying;
+      inventory.unshift(3);
       break;
     default:
-      inventory = [];
+      inventory = [0];
   }
   return inventory;
 }
 
-function makeHiddenItems(id) {
+function makeHiddenItems(inventory, id) {
   const hiddenItems = [];
   for (var i = id; i > 0; i--) {
     hiddenItems.push(<div className="hiddenItem" />);

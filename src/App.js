@@ -9,7 +9,7 @@ class App extends Component {
     this.state = {
       weapons,
       armors,
-      hoveredItem: "",
+      hoveredItem: [],
     };
   }
 
@@ -23,6 +23,7 @@ class App extends Component {
             weapons={this.state.weapons}
             hoveredItem={this.state.hoveredItem}
             setHoveredItem={this.setHoveredItem.bind(this)}
+            switchWeapon={this.switchWeapon.bind(this)}
           />
           <div className="player-model">
             <p>Player Model</p>
@@ -32,10 +33,29 @@ class App extends Component {
             armors={this.state.armors}
             hoveredItem={this.state.hoveredItem}
             setHoveredItem={this.setHoveredItem.bind(this)}
+            switchArmor={this.switchArmor.bind(this)}
           />
         </div>
       </div>
     );
+  }
+
+  switchWeapon = (weapons, id, count) => {
+     const currentWeapon = weapons[id].equipped
+     const hoveredWeapon = weapons[id].carrying[count]
+     const newWeaponsState = weapons;
+     newWeaponsState[id].equipped = hoveredWeapon;
+     newWeaponsState[id].carrying[count] = currentWeapon;
+     this.setState({ weapons: newWeaponsState })
+  }
+
+  switchArmor = (armors, id, count) => {
+     const currentArmor = armors[id].equipped
+     const hoveredArmor = armors[id].carrying[count]
+     const newArmorsState = armors;
+     newArmorsState[id].equipped = hoveredArmor;
+     newArmorsState[id].carrying[count] = currentArmor;
+     this.setState({ armors: newArmorsState })
   }
 
   setHoveredItem = (id) => {
@@ -54,20 +74,20 @@ class App extends Component {
       case "special":
         item = weapons.special.equipped;
         break;
-      case "helmet":
+      case "helmets":
         item = armors.helmets.equipped;
         break;
       case "gauntlets":
         item = armors.gauntlets.equipped;
         break;
-      case "chest":
+      case "chests":
         item = armors.chests.equipped;
         break;
       case "boots":
         item = armors.boots.equipped;
         break;
       default:
-        item = "";
+        item = [];
     }
     this.setState({ hoveredItem: item });
     return item;

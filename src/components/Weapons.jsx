@@ -6,57 +6,62 @@ class Weapons extends Component {
     super(props);
     this.state = {
       hover: false,
-      id: 0,
+      type: 0,
       weapon: "",
     };
   }
 
   render() {
-    const itemStorage = this.makeItemStorage(this.state, this.props.weapons);
+    const itemStorage = this.makeWeaponStorage(this.state, this.props.weapons);
     return (
       <div className="itemsArea">
         {itemStorage}
         <div className="items">
           <div
-            className="kinetic"
-            id={"kinetic"}
             onMouseEnter={this.enterWeapon.bind(this, "kinetic")}
             onMouseLeave={this.leaveWeapon.bind(this)}
           >
-            <Weapon weapon={this.props.weapons.kinetic.equipped} />
+            <Weapon
+              id={"kinetic"}
+              weapon={this.props.weapons.kinetic.equipped}
+             />
           </div>
           <div
             className="energy"
-            id={"energy"}
             onMouseEnter={this.enterWeapon.bind(this, "energy")}
             onMouseLeave={this.leaveWeapon.bind(this)}
           >
-            <Weapon weapon={this.props.weapons.energy.equipped} />
+            <Weapon
+              id={"energy"}
+              weapon={this.props.weapons.energy.equipped}
+             />
           </div>
           <div
-            className="power"
-            id={"power"}
             onMouseEnter={this.enterWeapon.bind(this, "power")}
             onMouseLeave={this.leaveWeapon.bind(this)}
           >
-            <Weapon weapon={this.props.weapons.power.equipped} />
+            <Weapon
+              id={"power"}
+              weapon={this.props.weapons.power.equipped}
+             />
           </div>
           <div
-            className="special"
-            id={"special"}
             onMouseEnter={this.enterWeapon.bind(this, "special")}
             onMouseLeave={this.leaveWeapon.bind(this)}
           >
-            <Weapon weapon={this.props.weapons.special.equipped} />
+            <Weapon
+              id={"special"}
+              weapon={this.props.weapons.special.equipped}
+             />
           </div>
         </div>
       </div>
     );
   }
 
-  enterWeapon = id => {
-    const weapon = this.props.setHoveredItem(id);
-    this.setState({ hover: true, id, weapon });
+  enterWeapon = type => {
+    const weapon = this.props.setHoveredItem(type);
+    this.setState({ hover: true, type, weapon });
   };
 
   leaveWeapon = () => {
@@ -64,14 +69,24 @@ class Weapons extends Component {
     this.setState({ hover: false, weapon });
   };
 
-  makeItemStorage = (state, weapons) => {
-    const hiddenItems = makeHiddenItems(state.id);
+  makeWeaponStorage = (state, weapons) => {
     let itemStorage;
     if (state.hover) {
-      const inventory = setHoveredInventory(weapons, state.id);
+      const inventory = setHoveredInventory(weapons, state.type);
+      const id = inventory.shift();
+      const hiddenItems = makeHiddenItems(inventory, id);
       let items = [];
+      let count = 0;
       for (var item in inventory) {
-        items.push(<Weapon weapon={inventory[item]} />);
+        items.push(
+          <div onClick={this.props.switchWeapon.bind(this, weapons, state.type, count)}>
+            <Weapon
+              id={count}
+              weapon={inventory[item]}
+              />
+          </div>
+        );
+        count++;
       }
       if (inventory.length < 7) {
         items.push(<div className="hiddenItem" />);
@@ -79,8 +94,8 @@ class Weapons extends Component {
       itemStorage = (
         <div
           className="itemStorage"
-          onMouseEnter={this.enterWeapon.bind(this, this.state.id)}
-          onMouseLeave={this.leaveWeapon.bind(this, this.state.id)}
+          onMouseEnter={this.enterWeapon.bind(this, state.type)}
+          onMouseLeave={this.leaveWeapon.bind(this, state.type)}
         >
           {hiddenItems}
           {items}
@@ -93,28 +108,32 @@ class Weapons extends Component {
   };
 }
 
-function setHoveredInventory(weapons, id) {
+function setHoveredInventory(weapons, type) {
   let inventory;
-  switch (id) {
+  switch (type) {
     case "kinetic":
       inventory = weapons.kinetic.carrying;
+      inventory.unshift(0);
       break;
     case "energy":
       inventory = weapons.energy.carrying;
+      inventory.unshift(1);
       break;
     case "power":
       inventory = weapons.power.carrying;
+      inventory.unshift(2);
       break;
     case "special":
       inventory = weapons.special.carrying;
+      inventory.unshift(3);
       break;
     default:
-      inventory = [];
+      inventory = [0];
   }
   return inventory;
 }
 
-function makeHiddenItems(id) {
+function makeHiddenItems(inventory, id) {
   const hiddenItems = [];
   for (var i = id; i > 0; i--) {
     hiddenItems.push(<div className="hiddenItem" />);
