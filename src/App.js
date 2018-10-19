@@ -21,8 +21,8 @@ class App extends Component {
         <div className="inventory">
           <Weapons
             weapons={this.state.weapons}
-            hoveredItem={this.state.hoveredItem}
             getHoveredItems={this.getHoveredItems.bind(this)}
+            getHoveredInvWeapon={this.getHoveredInvWeapon.bind(this)}
             switchWeapon={this.switchWeapon.bind(this)}
           />
           <div className="player-model">
@@ -31,8 +31,8 @@ class App extends Component {
           </div>
           <Armors
             armors={this.state.armors}
-            hoveredItem={this.state.hoveredItem}
             getHoveredItems={this.getHoveredItems.bind(this)}
+            getHoveredInvArmor={this.getHoveredInvArmor.bind(this)}
             switchArmor={this.switchArmor.bind(this)}
           />
         </div>
@@ -46,7 +46,7 @@ class App extends Component {
     const newWeaponsState = weapons;
     newWeaponsState[type].equipped = hoveredWeapon;
     newWeaponsState[type].carrying[count] = currentWeapon;
-    this.setState({ weapons: newWeaponsState });
+    this.setState({ weapons: newWeaponsState, hoveredItem: currentWeapon });
   };
 
   switchArmor = (armors, type, count) => {
@@ -55,7 +55,15 @@ class App extends Component {
     const newArmorsState = armors;
     newArmorsState[type].equipped = hoveredArmor;
     newArmorsState[type].carrying[count] = currentArmor;
-    this.setState({ armors: newArmorsState });
+    this.setState({ armors: newArmorsState, hoveredItem: currentArmor });
+  };
+
+  getHoveredInvWeapon = (type, count) => {
+    this.setState({ hoveredItem: this.state.weapons[type].carrying[count] });
+  };
+
+  getHoveredInvArmor = (type, count) => {
+    this.setState({ hoveredItem: this.state.armors[type].carrying[count] });
   };
 
   getHoveredItems = type => {

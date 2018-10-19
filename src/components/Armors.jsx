@@ -76,6 +76,11 @@ class Armors extends Component {
               state.type,
               count
             )}
+            onMouseEnter={this.props.getHoveredInvArmor.bind(
+              this,
+              state.type,
+              count
+            )}
           >
             <Armor id={count} armor={inventory[item]} />
           </div>

@@ -80,6 +80,11 @@ class Weapons extends Component {
               state.type,
               count
             )}
+            onMouseEnter={this.props.getHoveredInvWeapon.bind(
+              this,
+              state.type,
+              count
+            )}
           >
             <Weapon id={count} weapon={inventory[item]} />
           </div>
