@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import Weapons from "./components/Weapons";
 import Armors from "./components/Armors";
 import { weapons, armors } from "./inventory";
@@ -9,7 +9,7 @@ class App extends Component {
     this.state = {
       weapons,
       armors,
-      hoveredItem: [],
+      hoveredItem: []
     };
   }
 
@@ -22,7 +22,7 @@ class App extends Component {
           <Weapons
             weapons={this.state.weapons}
             hoveredItem={this.state.hoveredItem}
-            setHoveredItem={this.setHoveredItem.bind(this)}
+            getHoveredItems={this.getHoveredItems.bind(this)}
             switchWeapon={this.switchWeapon.bind(this)}
           />
           <div className="player-model">
@@ -32,7 +32,7 @@ class App extends Component {
           <Armors
             armors={this.state.armors}
             hoveredItem={this.state.hoveredItem}
-            setHoveredItem={this.setHoveredItem.bind(this)}
+            getHoveredItems={this.getHoveredItems.bind(this)}
             switchArmor={this.switchArmor.bind(this)}
           />
         </div>
@@ -40,28 +40,28 @@ class App extends Component {
     );
   }
 
-  switchWeapon = (weapons, id, count) => {
-     const currentWeapon = weapons[id].equipped
-     const hoveredWeapon = weapons[id].carrying[count]
-     const newWeaponsState = weapons;
-     newWeaponsState[id].equipped = hoveredWeapon;
-     newWeaponsState[id].carrying[count] = currentWeapon;
-     this.setState({ weapons: newWeaponsState })
-  }
+  switchWeapon = (weapons, type, count) => {
+    const currentWeapon = weapons[type].equipped;
+    const hoveredWeapon = weapons[type].carrying[count];
+    const newWeaponsState = weapons;
+    newWeaponsState[type].equipped = hoveredWeapon;
+    newWeaponsState[type].carrying[count] = currentWeapon;
+    this.setState({ weapons: newWeaponsState });
+  };
 
-  switchArmor = (armors, id, count) => {
-     const currentArmor = armors[id].equipped
-     const hoveredArmor = armors[id].carrying[count]
-     const newArmorsState = armors;
-     newArmorsState[id].equipped = hoveredArmor;
-     newArmorsState[id].carrying[count] = currentArmor;
-     this.setState({ armors: newArmorsState })
-  }
+  switchArmor = (armors, type, count) => {
+    const currentArmor = armors[type].equipped;
+    const hoveredArmor = armors[type].carrying[count];
+    const newArmorsState = armors;
+    newArmorsState[type].equipped = hoveredArmor;
+    newArmorsState[type].carrying[count] = currentArmor;
+    this.setState({ armors: newArmorsState });
+  };
 
-  setHoveredItem = (id) => {
+  getHoveredItems = type => {
     let item;
     const { weapons, armors } = this.state;
-    switch (id) {
+    switch (type) {
       case "kinetic":
         item = weapons.kinetic.equipped;
         break;
@@ -91,9 +91,9 @@ class App extends Component {
     }
     this.setState({ hoveredItem: item });
     return item;
-  }
+  };
 
-  makeItemStats = (item) => {
+  makeItemStats = item => {
     if (this.state.item !== "") {
       return (
         <div className="itemStats">
@@ -102,11 +102,11 @@ class App extends Component {
           <p>{item.damage}</p>
           <p>{item.rarity}</p>
         </div>
-      )
+      );
     } else {
-      return <div className="itemStats" />
+      return <div className="itemStats" />;
     }
-  }
+  };
 }
 
 export default App;

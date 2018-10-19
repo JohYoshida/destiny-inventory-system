@@ -7,7 +7,7 @@ class Weapons extends Component {
     this.state = {
       hover: false,
       type: 0,
-      weapon: "",
+      weapon: ""
     };
   }
 
@@ -24,26 +24,20 @@ class Weapons extends Component {
             <Weapon
               id={"kinetic"}
               weapon={this.props.weapons.kinetic.equipped}
-             />
+            />
           </div>
           <div
             className="energy"
             onMouseEnter={this.enterWeapon.bind(this, "energy")}
             onMouseLeave={this.leaveWeapon.bind(this)}
           >
-            <Weapon
-              id={"energy"}
-              weapon={this.props.weapons.energy.equipped}
-             />
+            <Weapon id={"energy"} weapon={this.props.weapons.energy.equipped} />
           </div>
           <div
             onMouseEnter={this.enterWeapon.bind(this, "power")}
             onMouseLeave={this.leaveWeapon.bind(this)}
           >
-            <Weapon
-              id={"power"}
-              weapon={this.props.weapons.power.equipped}
-             />
+            <Weapon id={"power"} weapon={this.props.weapons.power.equipped} />
           </div>
           <div
             onMouseEnter={this.enterWeapon.bind(this, "special")}
@@ -52,7 +46,7 @@ class Weapons extends Component {
             <Weapon
               id={"special"}
               weapon={this.props.weapons.special.equipped}
-             />
+            />
           </div>
         </div>
       </div>
@@ -60,12 +54,12 @@ class Weapons extends Component {
   }
 
   enterWeapon = type => {
-    const weapon = this.props.setHoveredItem(type);
+    const weapon = this.props.getHoveredItems(type);
     this.setState({ hover: true, type, weapon });
   };
 
   leaveWeapon = () => {
-    const weapon = this.props.setHoveredItem();
+    const weapon = this.props.getHoveredItems();
     this.setState({ hover: false, weapon });
   };
 
@@ -79,11 +73,15 @@ class Weapons extends Component {
       let count = 0;
       for (var item in inventory) {
         items.push(
-          <div onClick={this.props.switchWeapon.bind(this, weapons, state.type, count)}>
-            <Weapon
-              id={count}
-              weapon={inventory[item]}
-              />
+          <div
+            onClick={this.props.switchWeapon.bind(
+              this,
+              weapons,
+              state.type,
+              count
+            )}
+          >
+            <Weapon id={count} weapon={inventory[item]} />
           </div>
         );
         count++;

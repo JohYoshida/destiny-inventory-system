@@ -296,17 +296,36 @@ module.exports = {
     },
     power: {
       equipped: items.weapons.fusionRifles.energy.ElathaFR4,
-      carrying: []
+      carrying: [
+        items.weapons.autoRifles.energy.Refrain23,
+        items.weapons.sidearms.energy.RequiemSI2,
+        items.weapons.sniperRifles.energy.TongerenLR3,
+        items.weapons.shotguns.energy.Requiem43,
+        items.weapons.fusionRifles.energy.ElathaFR4,
+        items.weapons.submachineGuns.energy.Harmony21,
+        items.weapons.scoutRifles.energy.EternalBlazon
+      ]
     },
     special: {
       equipped: items.weapons.scoutRifles.energy.EternalBlazon,
-      carrying: []
+      carrying: [
+        items.weapons.autoRifles.energy.Refrain23,
+        items.weapons.sidearms.energy.RequiemSI2,
+        items.weapons.sniperRifles.energy.TongerenLR3,
+        items.weapons.shotguns.energy.Requiem43,
+        items.weapons.fusionRifles.energy.ElathaFR4,
+        items.weapons.submachineGuns.energy.Harmony21,
+        items.weapons.scoutRifles.energy.EternalBlazon
+      ]
     }
   },
   armors: {
     helmets: {
       equipped: items.armor.warlock.helmets.ProphetSnowHelmet,
       carrying: [
+        items.armor.warlock.helmets.EyeOfAnotherWorld,
+        items.armor.warlock.helmets.SkullOfDireAhamkara,
+        items.armor.warlock.helmets.WingTheoremHelmet,
         items.armor.warlock.helmets.EyeOfAnotherWorld,
         items.armor.warlock.helmets.SkullOfDireAhamkara,
         items.armor.warlock.helmets.WingTheoremHelmet
@@ -317,7 +336,10 @@ module.exports = {
       carrying: [
         items.armor.warlock.gauntlets.AeonSoul,
         items.armor.warlock.gauntlets.KarnsteinArmlets,
-        items.armor.warlock.gauntlets.VigilOfHeroesGauntlets
+        items.armor.warlock.gauntlets.VigilOfHeroesGauntlets,
+        items.armor.warlock.helmets.EyeOfAnotherWorld,
+        items.armor.warlock.helmets.SkullOfDireAhamkara,
+        items.armor.warlock.helmets.WingTheoremHelmet,
       ]
     },
     chests: {
@@ -326,7 +348,11 @@ module.exports = {
     },
     boots: {
       equipped: items.armor.warlock.boots.VigilOfHeroesBoots,
-      carrying: []
+      carrying: [
+        items.armor.warlock.helmets.EyeOfAnotherWorld,
+        items.armor.warlock.helmets.SkullOfDireAhamkara,
+        items.armor.warlock.helmets.WingTheoremHelmet,
+      ]
     }
   }
 };

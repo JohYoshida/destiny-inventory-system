@@ -7,7 +7,7 @@ class Armors extends Component {
     this.state = {
       hover: false,
       type: 0,
-      armor: "",
+      armor: ""
     };
   }
 
@@ -20,10 +20,7 @@ class Armors extends Component {
             onMouseEnter={this.enterArmor.bind(this, "helmets")}
             onMouseLeave={this.leaveArmor.bind(this)}
           >
-            <Armor
-              id={"helmets"}
-              armor={this.props.armors.helmets.equipped}
-            />
+            <Armor id={"helmets"} armor={this.props.armors.helmets.equipped} />
           </div>
           <div
             onMouseEnter={this.enterArmor.bind(this, "gauntlets")}
@@ -38,19 +35,13 @@ class Armors extends Component {
             onMouseEnter={this.enterArmor.bind(this, "chests")}
             onMouseLeave={this.leaveArmor.bind(this)}
           >
-            <Armor
-              id={"chests"}
-              armor={this.props.armors.chests.equipped}
-            />
+            <Armor id={"chests"} armor={this.props.armors.chests.equipped} />
           </div>
           <div
             onMouseEnter={this.enterArmor.bind(this, "boots")}
             onMouseLeave={this.leaveArmor.bind(this)}
           >
-            <Armor
-              id={"boots"}
-              armor={this.props.armors.boots.equipped}
-            />
+            <Armor id={"boots"} armor={this.props.armors.boots.equipped} />
           </div>
         </div>
         {itemStorage}
@@ -59,12 +50,12 @@ class Armors extends Component {
   }
 
   enterArmor = type => {
-    const armor = this.props.setHoveredItem(type);
+    const armor = this.props.getHoveredItems(type);
     this.setState({ hover: true, type, armor });
   };
 
   leaveArmor = () => {
-    const armor = this.props.setHoveredItem();
+    const armor = this.props.getHoveredItems();
     this.setState({ hover: false, armor });
   };
 
@@ -78,11 +69,15 @@ class Armors extends Component {
       let count = 0;
       for (var item in inventory) {
         items.push(
-          <div onClick={this.props.switchArmor.bind(this, armors, state.type, count)}>
-            <Armor
-              id={count}
-              armor={inventory[item]}
-              />
+          <div
+            onClick={this.props.switchArmor.bind(
+              this,
+              armors,
+              state.type,
+              count
+            )}
+          >
+            <Armor id={count} armor={inventory[item]} />
           </div>
         );
         count++;
@@ -104,7 +99,7 @@ class Armors extends Component {
       itemStorage = <div className="itemStorage hidden" />;
     }
     return itemStorage;
-  }
+  };
 }
 
 function setHoveredInventory(armors, type) {
