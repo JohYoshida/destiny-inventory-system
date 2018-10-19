@@ -3,31 +3,6 @@
   background-color: rgba(186, 186, 186, 0.75);
 }
 
-/* line 5, /home/joh/Documents/Projects/rpg/src/styles/scss/weapon.scss */
-.common {
-  background-color: #d6d6d6;
-}
-
-/* line 9, /home/joh/Documents/Projects/rpg/src/styles/scss/weapon.scss */
-.uncommon {
-  background-color: #1bc459;
-}
-
-/* line 13, /home/joh/Documents/Projects/rpg/src/styles/scss/weapon.scss */
-.rare {
-  background-color: #1b69c4;
-}
-
-/* line 17, /home/joh/Documents/Projects/rpg/src/styles/scss/weapon.scss */
-.legendary {
-  background-color: #9d1ac4;
-}
-
-/* line 21, /home/joh/Documents/Projects/rpg/src/styles/scss/weapon.scss */
-.exotic {
-  background-color: #c4b81b;
-}
-
 /* line 1, /home/joh/Documents/Projects/rpg/src/styles/scss/armor.scss */
 .Armor {
   background-color: rgba(186, 186, 186, 0.75);
@@ -126,6 +101,31 @@
 .inventory .player-model {
   flex: auto;
   text-align: center;
+}
+
+/* line 15, /home/joh/Documents/Projects/rpg/src/styles/scss/main.scss */
+.common {
+  background-color: #d6d6d6;
+}
+
+/* line 19, /home/joh/Documents/Projects/rpg/src/styles/scss/main.scss */
+.uncommon {
+  background-color: #1bc459;
+}
+
+/* line 23, /home/joh/Documents/Projects/rpg/src/styles/scss/main.scss */
+.rare {
+  background-color: #1b69c4;
+}
+
+/* line 27, /home/joh/Documents/Projects/rpg/src/styles/scss/main.scss */
+.legendary {
+  background-color: #9d1ac4;
+}
+
+/* line 31, /home/joh/Documents/Projects/rpg/src/styles/scss/main.scss */
+.exotic {
+  background-color: #c4b81b;
 }
 
 /*# sourceMappingURL=../css/main.map */
