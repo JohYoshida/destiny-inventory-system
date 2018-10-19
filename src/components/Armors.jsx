@@ -6,90 +6,116 @@ class Armors extends Component {
     super(props);
     this.state = {
       hover: false,
-      id: 0
+      id: 0,
+      armor: "",
     };
   }
 
-  enterArmor = id => {
-    this.setState({ hover: true, id });
-  };
-
-  leaveArmor = id => {
-    this.setState({ hover: false });
-  };
-
   render() {
-    const ids = [0, 1, 2, 3];
-    let hiddenItems = [];
-    for (var i = this.state.id; i > 0; i--) {
-      hiddenItems.push(<div className="hiddenItem" />);
-    }
-    let itemStorage;
-    if (this.state.hover) {
-      itemStorage = (
-        <div
-          className="itemStorage"
-          onMouseEnter={this.enterArmor.bind(this, this.state.id)}
-          onMouseLeave={this.leaveArmor.bind(this, this.state.id)}
-        >
-          {hiddenItems}
-          <div className="row">
-            <Armor />
-            <Armor />
-            <Armor />
-          </div>
-          <div className="row">
-            <Armor />
-            <Armor />
-            <Armor />
-          </div>
-          <div className="row">
-            <Armor />
-            <Armor />
-            <Armor />
-          </div>
-        </div>
-      );
-    } else {
-      itemStorage = <div className="itemStorage hidden" />;
-    }
-
+    const itemStorage = this.makeItemStorage(this.state, this.props.armors);
     return (
       <div className="itemsArea">
         <div className="items">
           <div
-            id={ids[0]}
-            onMouseEnter={this.enterArmor.bind(this, ids[0])}
-            onMouseLeave={this.leaveArmor.bind(this, ids[0])}
+            id={"helmet"}
+            onMouseEnter={this.enterArmor.bind(this, "helmet")}
+            onMouseLeave={this.leaveArmor.bind(this)}
           >
-            <Armor />
+            <Armor armor={this.props.armors.helmets.equipped} />
           </div>
           <div
-            id={ids[1]}
-            onMouseEnter={this.enterArmor.bind(this, ids[1])}
-            onMouseLeave={this.leaveArmor.bind(this, ids[1])}
+            id={"gauntlets"}
+            onMouseEnter={this.enterArmor.bind(this, "gauntlets")}
+            onMouseLeave={this.leaveArmor.bind(this)}
           >
-            <Armor />
+            <Armor armor={this.props.armors.gauntlets.equipped} />
           </div>
           <div
-            id={ids[2]}
-            onMouseEnter={this.enterArmor.bind(this, ids[2])}
-            onMouseLeave={this.leaveArmor.bind(this, ids[2])}
+            id={"chest"}
+            onMouseEnter={this.enterArmor.bind(this, "chest")}
+            onMouseLeave={this.leaveArmor.bind(this)}
           >
-            <Armor />
+            <Armor armor={this.props.armors.chests.equipped} />
           </div>
           <div
-            id={ids[3]}
-            onMouseEnter={this.enterArmor.bind(this, ids[3])}
-            onMouseLeave={this.leaveArmor.bind(this, ids[3])}
+            id={"boots"}
+            onMouseEnter={this.enterArmor.bind(this, "boots")}
+            onMouseLeave={this.leaveArmor.bind(this)}
           >
-            <Armor />
+            <Armor armor={this.props.armors.boots.equipped} />
           </div>
         </div>
         {itemStorage}
       </div>
     );
   }
+
+  enterArmor = id => {
+    const armor = this.props.setHoveredItem(id);
+    this.setState({ hover: true, id, armor });
+  };
+
+  leaveArmor = () => {
+    const armor = this.props.setHoveredItem();
+    this.setState({ hover: false, armor });
+  };
+
+  makeItemStorage = (state, armors) => {
+    const hiddenItems = makeHiddenItems(state.id);
+    let itemStorage;
+    if (state.hover) {
+      const inventory = setHoveredInventory(armors, state.id);
+      let items = [];
+      for (var item in inventory) {
+        items.push(<Armor armor={inventory[item]} />);
+      }
+      if (inventory.length < 7) {
+        items.push(<div className="hiddenItem" />);
+      }
+      itemStorage = (
+        <div
+          className="itemStorage"
+          onMouseEnter={this.enterArmor.bind(this, this.state.id)}
+          onMouseLeave={this.enterArmor.bind(this, this.state.id)}
+        >
+          {hiddenItems}
+          {items}
+        </div>
+      );
+    } else {
+      itemStorage = <div className="itemStorage hidden" />;
+    }
+    return itemStorage;
+  }
+}
+
+function setHoveredInventory(armors, id) {
+  let inventory;
+  switch (id) {
+    case "helmet":
+      inventory = armors.helmets.carrying;
+      break;
+    case "gauntlets":
+      inventory = armors.gauntlets.carrying;
+      break;
+    case "chest":
+      inventory = armors.chests.carrying;
+      break;
+    case "boots":
+      inventory = armors.boots.carrying;
+      break;
+    default:
+      inventory = [];
+  }
+  return inventory;
+}
+
+function makeHiddenItems(id) {
+  const hiddenItems = [];
+  for (var i = id; i > 0; i--) {
+    hiddenItems.push(<div className="hiddenItem" />);
+  }
+  return hiddenItems;
 }
 
 export default Armors;
